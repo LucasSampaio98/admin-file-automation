@@ -1,0 +1,12 @@
+<aside class="sidebar bg-dark text-white">
+    <nav>
+        <ul class="list-unstyled">
+            <li *ngIf="isAdmin">
+                <a routerLink="/clientes"><i class="fa fa-users"></i> Clientes</a>
+            </li>
+            <li *ngIf="!isAdmin">
+                <a routerLink="/arquivos"><i class="fa fa-folder"></i> Arquivos</a>
+            </li>
+        </ul>
+    </nav>
+</aside>
