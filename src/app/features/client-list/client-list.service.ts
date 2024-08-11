@@ -19,6 +19,6 @@ export class ClientService {
 
   getClientById(id: number): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-    return this.http.get<any>(`${this.apiUrl}/${id}`, { headers });
+    return this.http.get<any>(`${environment.apiUrl}/cliente/${id}/pastas`, { headers });
   }
 }

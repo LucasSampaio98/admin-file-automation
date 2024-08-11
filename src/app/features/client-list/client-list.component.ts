@@ -22,7 +22,7 @@ export class ClientListComponent implements OnInit {
     });
   }
 
-  viewClientDetails(clientId: number): void {
-    this.router.navigate(['/cliente', clientId]);
+  viewClientDetails(clientId: number, clientName: string): void {
+    this.router.navigate(['/cliente', clientId], { queryParams: { clientName: clientName } });
   }
 }
