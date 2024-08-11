@@ -1,0 +1,50 @@
+.sidebar {
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    /* Ocupa toda a altura da viewport */
+    background-color: #f8f9fa;
+    /* Cor de fundo igual ao header */
+    padding: 20px;
+    /* Padding nas laterais */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &.collapsed {
+       display: none;
+    }
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    /* Remove o underline */
+    color: #343a40;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar nav ul li a:hover {
+    color: #007bff;
+}
+
+.sidebar nav ul li a i {
+    margin-right: 10px;
+    /* Espaço entre o ícone e o texto */
+}
+
+@media (min-width: 992px) {
+    .sidebar.collapsed {
+        transform: translateX(0); // Garante que a sidebar esteja visível em telas grandes
+    }
+}
