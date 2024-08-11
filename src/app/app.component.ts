@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './core/header/header.component';
 import { SidebarComponent } from './core/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
+import { AuthService } from './core/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  constructor(public authService: AuthService) { }
+
   title = 'admin-engegraf';
   isSidebarCollapsed = false;
 
@@ -19,4 +22,7 @@ export class AppComponent {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;  // Alterna o estado da sidebar
   }
 
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  constructor(private authService: AuthService) {}
+  
   @Output() sidebarToggle = new EventEmitter<void>();
 
   toggleSidebar() {
     this.sidebarToggle.emit();
+  }
+
+  logout(): void {
+    this.authService.logout(); // Chama o método de logout
   }
 }

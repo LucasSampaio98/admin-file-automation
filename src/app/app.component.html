@@ -1,8 +1,14 @@
-<app-header (sidebarToggle)="toggleSidebar()"></app-header>
-<div class="d-flex">
-  <app-sidebar [isCollapsed]="isSidebarCollapsed"></app-sidebar>
+<ng-container *ngIf="isAuthenticated(); else loginTemplate">
+  <app-header (sidebarToggle)="toggleSidebar()"></app-header>
+  <div class="d-flex">
+    <app-sidebar [isCollapsed]="isSidebarCollapsed"></app-sidebar>
 
-  <main class="flex-grow-1 p-4">
-    <router-outlet></router-outlet>
-  </main>
-</div>
+    <main class="flex-grow-1 p-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</ng-container>
+
+<ng-template #loginTemplate>
+  <router-outlet></router-outlet>
+</ng-template>
