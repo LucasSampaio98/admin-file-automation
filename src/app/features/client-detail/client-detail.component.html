@@ -1,17 +1,37 @@
 <div>
-    <h2>Detalhes do Cliente: {{ clientName }}</h2>
+    <h2>Detalhes do Cliente: {{ client?.name }}</h2>
 
-    <div *ngFor="let folder of folders">
-        <h3>Pasta: {{ folder.folder_name }}</h3>
+    <!-- Seção para subir arquivos em pastas específicas -->
+    <div>
+        <h3>Subir arquivos para uma ou mais pastas específicas</h3>
+        <input type="radio" [(ngModel)]="mode" value="single" (change)="toggleModes()"> Escolher Pastas
         <ul>
-            <li *ngFor="let file of filesByFolder[folder.id]">
-                {{ file.file_name }}
-            </li>
+            <div *ngFor="let folder of folders">
+                <input type="checkbox" [value]="folder.id" (change)="onFolderSelectionChange($event)"
+                    [disabled]="mode !== 'single'">
+                {{ folder.folder_name }}
+            </div>
         </ul>
+        <h3>Upload de Arquivos</h3>
+        <input type="file" (change)="onFileSelected($event)" multiple [disabled]="mode !== 'single'"><br>
+        <button class="btn btn-primary btn-client-detail" (click)="uploadFiles()" [disabled]="mode !== 'single'">Enviar
+            Arquivos</button>
     </div>
 
-    <hr>
-    <h3>Upload de Arquivos</h3>
-    <input type="file" (change)="onFileSelected($event)" multiple><br>
-    <button class="btn btn-primary btn-client-detail" (click)="uploadFiles()">Enviar Arquivos</button>
+    <!-- Seção para subir arquivos em novas pastas baseadas em formatos -->
+    <div>
+        <h3>Subir novas pastas</h3>
+        <input type="radio" [(ngModel)]="mode" value="multiple" (change)="toggleModes()"> Escolher Formatos
+
+        <ul>
+            <li *ngFor="let format of availableFormats" class="list-style-none">
+                <input type="checkbox" [value]="format.format_name" (change)="onFormatSelectionChange($event)"
+                    [disabled]="mode !== 'multiple'">
+                {{ format.format_name }}
+            </li>
+        </ul>
+
+        <button class="btn btn-secondary btn-client-detail" (click)="createFolders()"
+            [disabled]="mode !== 'multiple'">Subir Pastas</button>
+    </div>
 </div>
