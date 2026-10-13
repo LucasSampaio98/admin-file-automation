@@ -17,13 +17,13 @@ describe('AppComponent', () => {
   it(`should have the 'admin' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('admin-engegraf');
+    expect(app.title).toEqual('admin');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, admin-engegraf');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, admin');
   });
 });
