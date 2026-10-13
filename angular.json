@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/admin-engegraf",
+            "outputPath": "dist/admin",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -85,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "admin-engegraf:build:production"
+              "buildTarget": "admin:build:production"
             },
             "development": {
-              "buildTarget": "admin-engegraf:build:development"
+              "buildTarget": "admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "admin-engegraf:build"
+            "buildTarget": "admin:build"
           }
         },
         "test": {
