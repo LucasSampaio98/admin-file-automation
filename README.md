@@ -1,27 +1,36 @@
-# Admin
+# Admin File Automation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+Aplicação web para administração de arquivos de clientes. O painel permite autenticação, consulta de clientes e pastas, seleção de formatos e envio de arquivos para uma ou mais pastas.
 
-## Development server
+## Requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js e npm
 
-## Code scaffolding
+## Configuração e execução
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Na raiz deste projeto:
 
-## Build
+```bash
+npm ci
+npm start
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+O servidor de desenvolvimento do Angular fica disponível em `http://localhost:4200/`.
 
-## Running unit tests
+Configure `apiUrl` nos arquivos `src/environments/environment.ts` e `src/environments/environment.prod.ts` para apontar à URL base da API (sem barra final). Os valores estão vazios no repositório, então as chamadas HTTP não funcionarão até essa configuração ser feita.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Funcionalidades do painel
 
-## Running end-to-end tests
+- Login e armazenamento local do token JWT recebido da API.
+- Listagem de clientes e consulta de pastas e formatos associados.
+- Visualização de arquivos por pasta.
+- Envio de arquivos para pastas selecionadas ou criação de pastas por formato, conforme os fluxos existentes na interface.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Desenvolvimento
 
-## Further help
+```bash
+npm test
+npm run build
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`npm test` executa os testes unitários com Karma. `npm run build` gera a versão de produção em `dist/`. Para uma compilação de desenvolvimento, use `npm run build:dev`.
